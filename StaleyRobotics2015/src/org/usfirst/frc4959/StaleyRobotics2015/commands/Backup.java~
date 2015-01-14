@@ -17,9 +17,9 @@ import org.usfirst.frc4959.StaleyRobotics2015.Robot;
 /**
  *
  */
-public class  AutonomousCommand extends Command {
+public class  Backup extends Command {
 
-    public AutonomousCommand() {
+    public Backup() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
