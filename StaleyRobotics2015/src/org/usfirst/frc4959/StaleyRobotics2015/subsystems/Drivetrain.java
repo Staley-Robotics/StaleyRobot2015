@@ -40,12 +40,21 @@ public class Drivetrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void getJoystickInputs(Joystick left, Joystick right) {
-    	robotDrive.tankDrive(left, right);
+//    public void getJoystickInputs(Joystick left, Joystick right) {
+//    	robotDrive.tankDrive(left, right);
+//    }
+    
+    public void arcadeDrive(double forward, double sideways) {
+    	if (forward > 0 && forward < 0) {
+    		robotDrive.arcadeDrive(forward, sideways = 0);
+    	}
+    	if (sideways > 0 && sideways <0) {
+    		robotDrive.arcadeDrive(forward = 0, sideways);
+    	} 
     }
 
 	public void stop() {
-		robotDrive.tankDrive(0, 0);
+		robotDrive.drive(0, 0);
 	}
 }
 

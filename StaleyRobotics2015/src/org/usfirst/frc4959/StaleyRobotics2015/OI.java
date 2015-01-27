@@ -51,15 +51,12 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 
     
-    public Joystick rightJoystick;
-    public Joystick leftJoystick;
+    public Joystick Joystick;
     
     public OI() {
 
-        rightJoystick = new Joystick(0);
-        leftJoystick = new Joystick(1);
+        Joystick = new Joystick(0);
 
-	    
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
@@ -67,12 +64,13 @@ public class OI {
 
     }
 
-	public Joystick getRightJoystick() {
-		return rightJoystick;
+	public double getJoystickY() {
+		return Joystick.getY();
+	}
+
+	public double getJoystickX() {
+		return Joystick.getX();
 	}
 	
-	public Joystick getLeftJoystick() {
-		return leftJoystick;
-	}
 }
 

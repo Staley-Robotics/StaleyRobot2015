@@ -40,6 +40,11 @@ public class RobotMap {
     	 * 2 is right
     	 * 3 is back
     	 * 4 is front
+    	 * 
+    	 * MOVE RIGHT - left and right off, front inverted, back normal
+    	 * MOVE LEFT - left and right off, front normal, left inverted
+    	 * MOVE FOWARD - left inverted, right normal, front and back off
+    	 * MOVE BACKWARD - left normal, right inverted, front and back off
     	 */
  
     	leftTalon = new Talon(1);
@@ -47,7 +52,7 @@ public class RobotMap {
     	backTalon = new Talon(3);
     	frontTalon = new Talon(4);
     	
-    	drivetrainRobotDrive = new RobotDrive(leftTalon, rightTalon, backTalon, frontTalon);
+    	drivetrainRobotDrive = new RobotDrive(leftTalon, backTalon, frontTalon, rightTalon);
     	
     	drivetrainRobotDrive.setInvertedMotor( MotorType.kFrontLeft, true);
     	drivetrainRobotDrive.setInvertedMotor( MotorType.kRearLeft, false);
@@ -57,6 +62,6 @@ public class RobotMap {
     	drivetrainRobotDrive.setSafetyEnabled(true);
     	drivetrainRobotDrive.setExpiration(0.1);
     	drivetrainRobotDrive.setSensitivity(0.5);
-    	drivetrainRobotDrive.setMaxOutput(0.4);
+    	drivetrainRobotDrive.setMaxOutput(0.3);
     }
 }
