@@ -10,16 +10,19 @@
 
 package org.usfirst.frc4959.StaleyRobotics2015.subsystems;
 
+import org.usfirst.frc4959.StaleyRobotics2015.Robot;
 import org.usfirst.frc4959.StaleyRobotics2015.RobotMap;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.*;
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
+import edu.wpi.first.wpilibj.can.CANNotInitializedException;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.communication.UsageReporting;
+import edu.wpi.first.wpilibj.communication.FRCNetworkCommunicationsLibrary.tInstances;
+import edu.wpi.first.wpilibj.communication.FRCNetworkCommunicationsLibrary.tResourceType;
 
 
-/**
- *
- */
 public class Drivetrain extends Subsystem {
 
     SpeedController speedController1 = RobotMap.leftTalon;
@@ -27,7 +30,9 @@ public class Drivetrain extends Subsystem {
     SpeedController speedController3 = RobotMap.backTalon;
     SpeedController speedController4 = RobotMap.frontTalon;
     
-    RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
+    RobotDrive robotDriveForward = RobotMap.drivetrainRobotDriveForward;
+    RobotDrive robotDriveSideways = RobotMap.drivetrainRobotDriveSideways;
+
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -35,26 +40,20 @@ public class Drivetrain extends Subsystem {
     public void initDefaultCommand() {
 
         setDefaultCommand(new DriveWithJoysticks());
-	
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
-    
-//    public void getJoystickInputs(Joystick left, Joystick right) {
-//    	robotDrive.tankDrive(left, right);
-//    }
-    
-    public void arcadeDrive(double forward, double sideways) {
-    	if (forward > 0 && forward < 0) {
-    		robotDrive.arcadeDrive(forward, sideways = 0);
-    	}
-    	if (sideways > 0 && sideways <0) {
-    		robotDrive.arcadeDrive(forward = 0, sideways);
-    	} 
+ 
+     public void falconDrive(double joystickX, double joystickY, double joystickTwist) {
+    	 robotDriveForward.arcadeDrive(joystickY, joystickTwist);
+    	 robotDriveSideways.arcadeDrive(0, joystickX);
+    }
+     
+    public void driveForward(double JoystickY) {
+    	robotDriveForward.tankDrive(JoystickY, JoystickY);
     }
 
 	public void stop() {
-		robotDrive.drive(0, 0);
+		robotDriveForward.drive(0, 0);
+		robotDriveSideways.drive(0, 0);
 	}
 }
 

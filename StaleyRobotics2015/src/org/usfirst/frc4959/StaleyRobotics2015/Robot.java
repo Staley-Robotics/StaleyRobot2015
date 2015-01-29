@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    RobotMap.init();
+    	RobotMap.init();
  
         drivetrain = new Drivetrain();
         elevator = new Elevator();

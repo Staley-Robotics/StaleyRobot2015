@@ -29,7 +29,8 @@ public class RobotMap {
     public static SpeedController rightTalon;
     public static SpeedController backTalon;
     public static SpeedController frontTalon;
-    public static RobotDrive drivetrainRobotDrive;
+    public static RobotDrive drivetrainRobotDriveForward;
+    public static RobotDrive drivetrainRobotDriveSideways;
     public static AnalogPotentiometer elevatorPotentiometer;
     public static SpeedController elevatorelevatorTalon;
 
@@ -52,16 +53,22 @@ public class RobotMap {
     	backTalon = new Talon(3);
     	frontTalon = new Talon(4);
     	
-    	drivetrainRobotDrive = new RobotDrive(leftTalon, backTalon, frontTalon, rightTalon);
+    	drivetrainRobotDriveForward = new RobotDrive(leftTalon, rightTalon);
+    	drivetrainRobotDriveSideways = new RobotDrive(frontTalon, backTalon);
     	
-    	drivetrainRobotDrive.setInvertedMotor( MotorType.kFrontLeft, true);
-    	drivetrainRobotDrive.setInvertedMotor( MotorType.kRearLeft, false);
-    	drivetrainRobotDrive.setInvertedMotor( MotorType.kFrontRight, true);
-    	drivetrainRobotDrive.setInvertedMotor( MotorType.kRearRight, false);
+    	drivetrainRobotDriveForward.setInvertedMotor( MotorType.kRearRight, true);
+    	drivetrainRobotDriveForward.setInvertedMotor( MotorType.kRearLeft, true);
+    	drivetrainRobotDriveSideways.setInvertedMotor( MotorType.kRearRight, false);
+    	drivetrainRobotDriveSideways.setInvertedMotor( MotorType.kRearLeft, true);
+    	 
+    	drivetrainRobotDriveSideways.setSafetyEnabled(true);
+    	drivetrainRobotDriveSideways.setExpiration(0.1);
+    	drivetrainRobotDriveSideways.setSensitivity(0.5);
+    	drivetrainRobotDriveSideways.setMaxOutput(0.3);
     	
-    	drivetrainRobotDrive.setSafetyEnabled(true);
-    	drivetrainRobotDrive.setExpiration(0.1);
-    	drivetrainRobotDrive.setSensitivity(0.5);
-    	drivetrainRobotDrive.setMaxOutput(0.3);
+    	drivetrainRobotDriveForward.setSafetyEnabled(true);
+    	drivetrainRobotDriveForward.setExpiration(0.1);
+    	drivetrainRobotDriveForward.setSensitivity(0.5);
+    	drivetrainRobotDriveForward.setMaxOutput(0.4);
     }
 }

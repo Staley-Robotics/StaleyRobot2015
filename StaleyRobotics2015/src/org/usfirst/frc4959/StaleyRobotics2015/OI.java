@@ -59,7 +59,6 @@ public class OI {
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-
         SmartDashboard.putData("Arcade Drive", new DriveWithJoysticks());
 
     }
@@ -72,5 +71,8 @@ public class OI {
 		return Joystick.getX();
 	}
 	
+	public double getJoystickTwist() {
+		return Joystick.getTwist();
+	}
 }
 
