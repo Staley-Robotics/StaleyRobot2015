@@ -21,14 +21,14 @@ import org.usfirst.frc4959.StaleyRobotics2015.Robot;
 public class  DriveWithJoysticks extends Command {
 
     public DriveWithJoysticks() {
-        requires(Robot.drivetrain);
+        requires(Robot.driveTrain);
     }
     
     protected void initialize() {
     }
     
     protected void execute() {
-    	Robot.drivetrain.falconDrive(Robot.oi.getJoystickX(), Robot.oi.getJoystickY(), Robot.oi.getJoystickTwist());
+    	Robot.driveTrain.falconDrive(Robot.oi.getJoystickX(), Robot.oi.getJoystickY(), Robot.oi.getJoystickTwist());
     }
     
     protected boolean isFinished() {
@@ -36,7 +36,7 @@ public class  DriveWithJoysticks extends Command {
     }
     
     protected void end() {
-    	Robot.drivetrain.stop();
+    	Robot.driveTrain.stop();
     }
     
     protected void interrupted() {
