@@ -5,7 +5,7 @@ import org.usfirst.frc4959.StaleyRobotics2015.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Author - Dustin Klein
  */
 public class CloseArms extends Command {
 

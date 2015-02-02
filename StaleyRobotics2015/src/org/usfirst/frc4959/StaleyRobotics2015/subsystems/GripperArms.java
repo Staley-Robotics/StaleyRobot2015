@@ -8,7 +8,7 @@ import org.usfirst.frc4959.StaleyRobotics2015.commands.*;
 import edu.wpi.first.wpilibj.*;
 
 /**
- *
+ * Author - Dustin Klein
  */
 public class GripperArms extends Subsystem {
     

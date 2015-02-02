@@ -43,30 +43,34 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 
     
-    public Joystick Joystick;
+    public Joystick rightJoystick;
+    public Joystick leftJoystick;
     
     public OI() {
-
-        Joystick = new Joystick(0);
-        Button button1 = new JoystickButton(Joystick, 1);
-        Button button2 = new JoystickButton(Joystick, 2);
+        rightJoystick = new Joystick(0);
+        leftJoystick = new Joystick(1);
+        
+        Button button1 = new JoystickButton(rightJoystick, 1),
+        		button2 = new JoystickButton(rightJoystick, 2);
 
         button1.whileHeld(new OpenArms());
-        button2.whileHeld(new CloseArms());
-        
-        
+        button2.whileHeld(new CloseArms());    
     }
 
-	public double getJoystickY() {
-		return Joystick.getY();
+	public double getRightJoystickY() {
+		return rightJoystick.getY();
 	}
 
-	public double getJoystickX() {
-		return Joystick.getX();
+	public double getRightJoystickX() {
+		return rightJoystick.getX();
 	}
 	
-	public double getJoystickTwist() {
-		return Joystick.getTwist();
+	public double getRightJoystickTwist() {
+		return rightJoystick.getTwist();
+	}
+	
+	public double getLeftJoystickY() {
+		return leftJoystick.getY();
 	}
 }
 

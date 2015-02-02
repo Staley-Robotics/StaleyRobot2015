@@ -21,7 +21,7 @@ public class RobotMap {
     public static RobotDrive drivetrainRobotDriveForward;
     public static RobotDrive drivetrainRobotDriveSideways;
     public static AnalogPotentiometer elevatorPotentiometer;
-    public static SpeedController elevatorelevatorTalon;
+    public static SpeedController elevatorTalon;
     public static Compressor compressor;
     public static DoubleSolenoid solenoid;
 
@@ -32,19 +32,16 @@ public class RobotMap {
     	 * 2 is right
     	 * 3 is back
     	 * 4 is front
-    	 * 
-    	 * MOVE RIGHT - left and right off, front inverted, back normal
-    	 * MOVE LEFT - left and right off, front normal, left inverted
-    	 * MOVE FOWARD - left inverted, right normal, front and back off
-    	 * MOVE BACKWARD - left normal, right inverted, front and back off
     	 */
  
     	leftTalon = new Talon(1);
     	rightTalon = new Talon(2);
     	backTalon = new Talon(3);
     	frontTalon = new Talon(4);
+    	elevatorTalon = new Talon(5);
     	compressor = new Compressor(0);
     	solenoid = new DoubleSolenoid(0,1);
+    	elevatorPotentiometer = new AnalogPotentiometer(0, 360, 30);
     	
     	drivetrainRobotDriveForward = new RobotDrive(leftTalon, rightTalon);
     	drivetrainRobotDriveSideways = new RobotDrive(frontTalon, backTalon);
