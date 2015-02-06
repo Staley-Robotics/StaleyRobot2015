@@ -54,11 +54,11 @@ public class RobotMap {
     	drivetrainRobotDriveSideways.setSafetyEnabled(true);
     	drivetrainRobotDriveSideways.setExpiration(0.1);
     	drivetrainRobotDriveSideways.setSensitivity(0.5);
-    	drivetrainRobotDriveSideways.setMaxOutput(0.3);
+    	drivetrainRobotDriveSideways.setMaxOutput(0.4);
     	
     	drivetrainRobotDriveForward.setSafetyEnabled(true);
     	drivetrainRobotDriveForward.setExpiration(0.1);
     	drivetrainRobotDriveForward.setSensitivity(0.5);
-    	drivetrainRobotDriveForward.setMaxOutput(0.4);
+    	drivetrainRobotDriveForward.setMaxOutput(0.5);
     }
 }

@@ -16,7 +16,7 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 
-    Command autonomousCommand;
+    Command autonomousCommandOne;
 
     public static OI oi;
     
@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
+    
     public void robotInit() {
     	RobotMap.init();
  
@@ -43,7 +44,7 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 
         // instantiate the command used for the autonomous period
-        autonomousCommand = new AutonomousCommand();
+        autonomousCommandOne = new PickUpThenMove();
     }
 
     /**
@@ -60,7 +61,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        if (autonomousCommandOne != null) autonomousCommandOne.start();
     }
 
     /**
@@ -75,7 +76,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        if (autonomousCommandOne != null) autonomousCommandOne.cancel();
     }
 
     /**

@@ -6,10 +6,16 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.GripperArms;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
-
+import org.usfirst.frc4959.StaleyRobotics2015.commands.CloseArms;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.OpenArms;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToFourToteHeight;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToOneToteHeight;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToThreeToteHeight;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToTwoToteHeight;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -43,20 +49,38 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 
     
-    public Joystick rightJoystick;
+
+	public Joystick rightJoystick;
     public Joystick leftJoystick;
     
     public OI() {
         rightJoystick = new Joystick(0);
         leftJoystick = new Joystick(1);
         
-        Button button1 = new JoystickButton(rightJoystick, 1),
-        		button2 = new JoystickButton(rightJoystick, 2);
-
-        button1.whileHeld(new OpenArms());
-        button2.whileHeld(new CloseArms());    
+        Button openPiston = new JoystickButton(leftJoystick, 1),
+        		closePiston = new JoystickButton(leftJoystick, 2),
+        		toteOneHeight = new JoystickButton(leftJoystick, 6),
+                toteTwoHeight = new JoystickButton(leftJoystick, 7),
+                toteThreeHeight = new JoystickButton(leftJoystick, 10),
+                toteFourHeight = new JoystickButton(leftJoystick, 11);
+        
+        openPiston.whileHeld(new OpenArms());
+        closePiston.whileHeld(new CloseArms());
+        toteOneHeight.whenPressed(new GoToOneToteHeight());
+        toteTwoHeight.whenPressed(new GoToTwoToteHeight());
+        toteThreeHeight.whenPressed(new GoToThreeToteHeight());
+        toteFourHeight.whenPressed(new GoToFourToteHeight());
+        
+        // SmartDashboard Widgets
+        SmartDashboard.putData(Scheduler.getInstance());
+        SmartDashboard.putData("Close Arms", new CloseArms());
+        SmartDashboard.putData("Open Arms", new OpenArms());
+        SmartDashboard.putData("One Tote Height", new GoToOneToteHeight());
+        SmartDashboard.putData("Two Tote Height", new GoToTwoToteHeight());
+        SmartDashboard.putData("Three Tote Height", new GoToThreeToteHeight());
+        SmartDashboard.putData("Four Tote Height", new GoToFourToteHeight());
     }
-
+    
 	public double getRightJoystickY() {
 		return rightJoystick.getY();
 	}

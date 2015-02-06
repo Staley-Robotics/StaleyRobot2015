@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
- * Author - Dustin Klein and Saul A.
+ * Author - Cameron Hensel (Head Programmer)
  */
 public class Elevator extends PIDSubsystem {
 	
@@ -29,6 +29,7 @@ public class Elevator extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
+    	setDefaultCommand(new ControlElevatorWithJoysticks());
     }
     
     protected double returnPIDInput() {
@@ -39,15 +40,24 @@ public class Elevator extends PIDSubsystem {
         elevatorTalon.pidWrite(output);
     }
     
-    public void raiseElevator(double leftJoystickY) {
-    	while (potentiometer.pidGet() < 4.8) {
-        	elevatorTalon.set(0.5);
-    	}
-    }
-    
-    public void lowerElevator(double leftJoystickY) {
-    	while (potentiometer.pidGet() > .01) {
-    		elevatorTalon.set(-0.5);	
+//    public void raiseElevator(double leftJoystickY) {
+//    	while (potentiometer.pidGet() < 4.86) {
+//        	elevatorTalon.set(0.5);
+//    	}
+//    }
+//    
+//    public void lowerElevator(double leftJoystickY) {
+//    	while (potentiometer.pidGet() > .01) {
+//    		elevatorTalon.set(-0.5);	
+//    	}
+//    }
+    public void elevator(double leftJoystickY) {
+    	if (leftJoystickY > 0.5) {
+    		elevatorTalon.set(-0.25);
+    	} else if (leftJoystickY < -0.5) {
+    		elevatorTalon.set(0.2);
+    	} else {
+    		elevatorTalon.set(0.0);
     	}
     }
 }

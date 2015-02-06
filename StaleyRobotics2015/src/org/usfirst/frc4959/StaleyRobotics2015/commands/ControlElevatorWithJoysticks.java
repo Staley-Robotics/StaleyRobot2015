@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Author Dustin Klein and Saul A.
  */
-public class LowerElevatorWithJoysticks extends Command {
+public class ControlElevatorWithJoysticks extends Command {
 
-    public LowerElevatorWithJoysticks() {
+    public ControlElevatorWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.elevator);
@@ -21,7 +21,7 @@ public class LowerElevatorWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.lowerElevator(Robot.oi.getLeftJoystickY());
+    	Robot.elevator.elevator(Robot.oi.getLeftJoystickY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
