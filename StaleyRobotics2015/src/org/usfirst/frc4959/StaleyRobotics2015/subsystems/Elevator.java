@@ -15,10 +15,12 @@ public class Elevator extends PIDSubsystem {
     AnalogPotentiometer potentiometer = RobotMap.elevatorPotentiometer;
     SpeedController elevatorTalon = RobotMap.elevatorTalon;
     
-    public static double oneToteHeight = 1,
+    public static double groundHeight = .3,
+    		oneToteHeight = 1,
     		twoToteHeight = 2,
     		threeToteHeight = 3,
-    		fourToteHeight = 4;
+    		fourToteHeight = 4,
+    		recycleBinHeight = 2.2;
     
     public Elevator() {
         super("Elevator", 1.0, 0.0, 0.0);
@@ -59,5 +61,9 @@ public class Elevator extends PIDSubsystem {
     	} else {
     		elevatorTalon.set(0.0);
     	}
+    }
+    
+    public double getPosition() {
+    	return potentiometer.pidGet();
     }
 }

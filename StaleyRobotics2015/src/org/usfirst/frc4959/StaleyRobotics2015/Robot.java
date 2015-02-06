@@ -17,6 +17,7 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.*;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommandOne;
+    Command autonomousCommandTwo;
 
     public static OI oi;
     
@@ -44,7 +45,8 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 
         // instantiate the command used for the autonomous period
-        autonomousCommandOne = new PickUpThenMove();
+        autonomousCommandOne = new AutonomousOneTote();
+        autonomousCommandTwo = new AutonomousOneToteRecycleBin();
     }
 
     /**
