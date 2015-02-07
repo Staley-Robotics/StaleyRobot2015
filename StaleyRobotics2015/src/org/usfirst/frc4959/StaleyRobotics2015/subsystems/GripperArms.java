@@ -1,8 +1,6 @@
 package org.usfirst.frc4959.StaleyRobotics2015.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc4959.StaleyRobotics2015.Robot;
-import org.usfirst.frc4959.StaleyRobotics2015.RobotMap;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.*;
 
 import edu.wpi.first.wpilibj.*;

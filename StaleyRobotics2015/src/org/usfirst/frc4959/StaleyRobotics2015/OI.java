@@ -1,9 +1,5 @@
 package org.usfirst.frc4959.StaleyRobotics2015;
 
-import org.usfirst.frc4959.StaleyRobotics2015.commands.*;
-import org.usfirst.frc4959.StaleyRobotics2015.subsystems.Drivetrain;
-import org.usfirst.frc4959.StaleyRobotics2015.subsystems.GripperArms;
-
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;

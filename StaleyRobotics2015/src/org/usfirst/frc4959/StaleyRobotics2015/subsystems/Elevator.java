@@ -42,17 +42,6 @@ public class Elevator extends PIDSubsystem {
         elevatorTalon.pidWrite(output);
     }
     
-//    public void raiseElevator(double leftJoystickY) {
-//    	while (potentiometer.pidGet() < 4.86) {
-//        	elevatorTalon.set(0.5);
-//    	}
-//    }
-//    
-//    public void lowerElevator(double leftJoystickY) {
-//    	while (potentiometer.pidGet() > .01) {
-//    		elevatorTalon.set(-0.5);	
-//    	}
-//    }
     public void elevator(double leftJoystickY) {
     	if (leftJoystickY > 0.5) {
     		elevatorTalon.set(-0.25);

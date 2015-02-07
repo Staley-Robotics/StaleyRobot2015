@@ -2,9 +2,6 @@ package org.usfirst.frc4959.StaleyRobotics2015;
     
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
-import java.util.Vector;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -26,6 +23,7 @@ public class RobotMap {
     public static DoubleSolenoid solenoid;
 
     public static void init() {
+    	
     	/*
     	 * Battery side is front
     	 * 1 is left

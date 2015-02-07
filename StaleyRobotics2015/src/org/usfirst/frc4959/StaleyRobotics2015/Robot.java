@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4959.StaleyRobotics2015.commands.*;
 import org.usfirst.frc4959.StaleyRobotics2015.subsystems.*;
 
@@ -16,6 +19,7 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 
+	Command autonomousCommand;
     Command autonomousCommandOne;
     Command autonomousCommandTwo;
 
@@ -25,7 +29,7 @@ public class Robot extends IterativeRobot {
     public static Elevator elevator;;
     public static GripperArms gripperArms;
  
-
+    SendableChooser autonomousModes;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -45,8 +49,10 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 
         // instantiate the command used for the autonomous period
-        autonomousCommandOne = new AutonomousOneTote();
-        autonomousCommandTwo = new AutonomousOneToteRecycleBin();
+        autonomousModes = new SendableChooser();
+        autonomousModes.addDefault("One tote", new AutonomousOneTote());
+        autonomousModes.addObject("One Tote and Recycle Bin", new AutonomousOneToteRecycleBin());
+        SmartDashboard.putData("Autonomous Modes", autonomousModes);
     }
 
     /**
@@ -62,7 +68,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
+    	autonomousCommand = (Command) autonomousModes.getSelected();
         if (autonomousCommandOne != null) autonomousCommandOne.start();
     }
 
