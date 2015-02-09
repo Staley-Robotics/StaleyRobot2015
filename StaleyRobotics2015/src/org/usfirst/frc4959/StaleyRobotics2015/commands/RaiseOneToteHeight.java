@@ -17,7 +17,7 @@ public class RaiseOneToteHeight extends Command {
     }
 
     protected void execute() {
-    	Robot.elevator.setSetpoint(Robot.elevator.getPosition() + 1);
+    	Robot.elevator.setSetpointRelative(1);
     }
 
     protected boolean isFinished() {

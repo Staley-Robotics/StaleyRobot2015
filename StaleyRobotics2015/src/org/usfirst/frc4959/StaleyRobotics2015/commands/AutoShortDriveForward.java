@@ -25,7 +25,7 @@ public class AutoShortDriveForward extends Command {
     	RobotMap.drivetrainRobotDriveForward.tankDrive(0.5, 0.5);
     }
     protected boolean isFinished() {
-        while (TIMER.get() < .3) {
+        while (TIMER.get() < .1) {
         	return false;
         }
         return true;

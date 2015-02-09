@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein and Connor
+ * Author - Dustin Klein and Connor and Kuran and Brett but not dillon 
  */
 public class AutoDriveSidewaysRight extends Command {
 	
@@ -26,7 +26,7 @@ public class AutoDriveSidewaysRight extends Command {
     }
 
     protected boolean isFinished() {
-    	while (TIMER.get() < 1.5) {
+    	while (TIMER.get() < 0.5) {
     		return false;
     	}
     	return true;

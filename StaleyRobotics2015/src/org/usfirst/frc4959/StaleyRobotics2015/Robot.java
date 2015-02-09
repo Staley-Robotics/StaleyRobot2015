@@ -17,11 +17,13 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.*;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+
 public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
     Command autonomousCommandOne;
     Command autonomousCommandTwo;
+    Command autonomousCommandThree;
 
     public static OI oi;
     
@@ -30,6 +32,7 @@ public class Robot extends IterativeRobot {
     public static GripperArms gripperArms;
  
     SendableChooser autonomousModes;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -41,7 +44,6 @@ public class Robot extends IterativeRobot {
         driveTrain = new Drivetrain();
         elevator = new Elevator();
         gripperArms = new GripperArms();
-        
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -50,7 +52,8 @@ public class Robot extends IterativeRobot {
 
         // instantiate the command used for the autonomous period
         autonomousModes = new SendableChooser();
-        autonomousModes.addDefault("One tote", new AutonomousOneTote());
+        autonomousModes.addDefault("One Tote", new AutonomousOneTote());
+        autonomousModes.addObject("One Recycle Bin", new AutonomousOneRecycleBin());
         autonomousModes.addObject("One Tote and Recycle Bin", new AutonomousOneToteRecycleBin());
         SmartDashboard.putData("Autonomous Modes", autonomousModes);
     }
@@ -64,17 +67,18 @@ public class Robot extends IterativeRobot {
     }
 
     public void disabledPeriodic() {
-        Scheduler.getInstance().run();
+        Scheduler.getInstance().run(); 
     }
 
     public void autonomousInit() {
     	autonomousCommand = (Command) autonomousModes.getSelected();
-        if (autonomousCommandOne != null) autonomousCommandOne.start();
+        if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**
      * This function is called periodically during autonomous
      */
+    
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
@@ -90,6 +94,7 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during operator control
      */
+    
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
@@ -97,6 +102,7 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during test mode
      */
+    
     public void testPeriodic() {
         LiveWindow.run();
     }

@@ -3,7 +3,7 @@ package org.usfirst.frc4959.StaleyRobotics2015.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Author - Dustin Klein
+ * Author - Blake Croston
  */
 public class AutonomousOneToteRecycleBin extends CommandGroup {
     
@@ -16,7 +16,7 @@ public class AutonomousOneToteRecycleBin extends CommandGroup {
     	addSequential(new CloseArms());
     	addSequential(new RaiseOneToteHeight());
     	addSequential(new AutoDriveSidewaysLeft());
-    	addSequential(new GoToGroundHeight());
+    	addSequential(new GoToOneToteHeight());
     	addSequential(new OpenArms());
     }
 }

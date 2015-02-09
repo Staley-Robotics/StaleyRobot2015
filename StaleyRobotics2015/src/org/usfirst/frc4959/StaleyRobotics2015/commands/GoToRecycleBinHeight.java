@@ -6,11 +6,11 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein
+ * Authors - Dustin Klein, Connor, Dillon
  */
-public class GoToGroundHeight extends Command {
+public class GoToRecycleBinHeight extends Command {
 
-    public GoToGroundHeight() {
+    public GoToRecycleBinHeight() {
     	requires(Robot.elevator);
     }
 
@@ -18,11 +18,11 @@ public class GoToGroundHeight extends Command {
     }
 
     protected void execute() {
-    	Robot.elevator.setSetpoint(Elevator.groundHeight);
+    	Robot.elevator.setSetpoint(Elevator.recycleBinHeight);
     }
 
     protected boolean isFinished() {
-        return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
+    	return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
     }
 
     protected void end() {

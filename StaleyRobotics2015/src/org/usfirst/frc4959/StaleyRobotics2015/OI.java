@@ -7,11 +7,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
 import org.usfirst.frc4959.StaleyRobotics2015.commands.CloseArms;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.LowerOneToteHeight;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.OpenArms;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToFourToteHeight;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToOneToteHeight;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToThreeToteHeight;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.GoToTwoToteHeight;
+import org.usfirst.frc4959.StaleyRobotics2015.commands.RaiseOneToteHeight;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -55,6 +57,8 @@ public class OI {
         
         Button openPiston = new JoystickButton(leftJoystick, 1),
         		closePiston = new JoystickButton(leftJoystick, 2),
+        		lowerOneToteHeight = new JoystickButton(leftJoystick, 4),
+        		raiseOneToteHeight = new JoystickButton(leftJoystick, 5),
         		toteOneHeight = new JoystickButton(leftJoystick, 6),
                 toteTwoHeight = new JoystickButton(leftJoystick, 7),
                 toteThreeHeight = new JoystickButton(leftJoystick, 10),
@@ -66,11 +70,15 @@ public class OI {
         toteTwoHeight.whenPressed(new GoToTwoToteHeight());
         toteThreeHeight.whenPressed(new GoToThreeToteHeight());
         toteFourHeight.whenPressed(new GoToFourToteHeight());
+        raiseOneToteHeight.whenPressed(new RaiseOneToteHeight());
+        lowerOneToteHeight.whenPressed(new LowerOneToteHeight());
         
         // SmartDashboard Widgets
         SmartDashboard.putData(Scheduler.getInstance());
         SmartDashboard.putData("Close Arms", new CloseArms());
         SmartDashboard.putData("Open Arms", new OpenArms());
+        SmartDashboard.putData("Raise One Tote Height", new RaiseOneToteHeight());
+        SmartDashboard.putData("Lower One Tote Height", new LowerOneToteHeight());
         SmartDashboard.putData("One Tote Height", new GoToOneToteHeight());
         SmartDashboard.putData("Two Tote Height", new GoToTwoToteHeight());
         SmartDashboard.putData("Three Tote Height", new GoToThreeToteHeight());

@@ -48,7 +48,7 @@ public class RobotMap {
     	drivetrainRobotDriveForward.setInvertedMotor( MotorType.kRearLeft, true);
     	drivetrainRobotDriveSideways.setInvertedMotor( MotorType.kRearRight, false);
     	drivetrainRobotDriveSideways.setInvertedMotor( MotorType.kRearLeft, true);
-    	 
+    	
     	drivetrainRobotDriveSideways.setSafetyEnabled(true);
     	drivetrainRobotDriveSideways.setExpiration(0.1);
     	drivetrainRobotDriveSideways.setSensitivity(0.5);
