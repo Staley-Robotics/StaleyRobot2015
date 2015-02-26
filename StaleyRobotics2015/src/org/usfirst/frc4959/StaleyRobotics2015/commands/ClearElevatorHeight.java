@@ -1,29 +1,27 @@
 package org.usfirst.frc4959.StaleyRobotics2015.commands;
 
 import org.usfirst.frc4959.StaleyRobotics2015.Robot;
-import org.usfirst.frc4959.StaleyRobotics2015.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein
+ *
  */
-public class RaiseOneToteHeight extends Command {
+public class ClearElevatorHeight extends Command {
 
-    public RaiseOneToteHeight() {
+    public ClearElevatorHeight() {
     	requires(Robot.elevator);
     }
 
     protected void initialize() {
     }
 
-    protected void execute() {
-    	Robot.elevator.setSetpointRelative(0.5);
-    	Robot.elevator.enable();
+	protected void execute() {
+		Robot.elevator.disable();
     }
 
     protected boolean isFinished() {
-        return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
+        return false;
     }
 
     protected void end() {

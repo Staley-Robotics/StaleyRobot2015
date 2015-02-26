@@ -9,9 +9,8 @@ public class AutonomousOneRecycleBin extends CommandGroup {
     
     public  AutonomousOneRecycleBin() {
     	addSequential(new CloseArms());
-    	addSequential(new RaiseOneToteHeight());
     	addSequential(new AutoDriveSidewaysLeft());
-    	addSequential(new GoToOneToteHeight());
     	addSequential(new OpenArms());
+    	addSequential(new AutoShortDriveBack());
     }
 }

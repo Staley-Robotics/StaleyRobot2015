@@ -2,6 +2,7 @@ package org.usfirst.frc4959.StaleyRobotics2015;
     
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -9,8 +10,8 @@ import edu.wpi.first.wpilibj.RobotDrive.MotorType;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap {
 
+public class RobotMap {
     public static SpeedController leftTalon;
     public static SpeedController rightTalon;
     public static SpeedController backTalon;
@@ -37,9 +38,11 @@ public class RobotMap {
     	backTalon = new Talon(3);
     	frontTalon = new Talon(4);
     	elevatorTalon = new Talon(5);
+        LiveWindow.addActuator("Elevator", "Motor", (Talon) elevatorTalon);
     	compressor = new Compressor(0);
     	solenoid = new DoubleSolenoid(0,1);
-    	elevatorPotentiometer = new AnalogPotentiometer(0, 360, 30);
+    	elevatorPotentiometer = new AnalogPotentiometer(0, 4.8, 0);
+        LiveWindow.addSensor("Elevator", "Potentiometer", elevatorPotentiometer);
     	
     	drivetrainRobotDriveForward = new RobotDrive(leftTalon, rightTalon);
     	drivetrainRobotDriveSideways = new RobotDrive(frontTalon, backTalon);
@@ -52,11 +55,11 @@ public class RobotMap {
     	drivetrainRobotDriveSideways.setSafetyEnabled(true);
     	drivetrainRobotDriveSideways.setExpiration(0.1);
     	drivetrainRobotDriveSideways.setSensitivity(0.5);
-    	drivetrainRobotDriveSideways.setMaxOutput(0.4);
+    	drivetrainRobotDriveSideways.setMaxOutput(.5);
     	
     	drivetrainRobotDriveForward.setSafetyEnabled(true);
     	drivetrainRobotDriveForward.setExpiration(0.1);
     	drivetrainRobotDriveForward.setSensitivity(0.5);
-    	drivetrainRobotDriveForward.setMaxOutput(0.5);
+    	drivetrainRobotDriveForward.setMaxOutput(.7);
     }
 }

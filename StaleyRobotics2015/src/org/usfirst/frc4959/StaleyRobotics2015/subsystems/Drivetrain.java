@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * 
  * 
  * 
- * Lowly Builder - Blake 
+ * Lowly Builder - Blake Croston 
  */
 public class Drivetrain extends Subsystem {
 
@@ -28,13 +28,25 @@ public class Drivetrain extends Subsystem {
     }
  
      public void falconDrive(double joystickX, double joystickY, double joystickTwist) {
-    	 robotDriveForward.arcadeDrive(joystickY, joystickTwist);
+    	 robotDriveForward.arcadeDrive(joystickY, joystickTwist * 0.9);
     	 robotDriveSideways.arcadeDrive(0, joystickX);
     }
+    
+//    public void falconDrive(Joystick rightJoystick) {
+//    	robotDriveForward.arcadeDrive(rightJoystick);
+//    }
 
 	public void stop() {
 		robotDriveForward.drive(0, 0);
 		robotDriveSideways.drive(0, 0);
+	}
+	
+	public void forward(double speed) {
+		robotDriveForward.arcadeDrive(speed, 0);
+	}
+	
+	public void sideways (double speed) {
+		robotDriveSideways.arcadeDrive(speed, 0);
 	}
 }
 

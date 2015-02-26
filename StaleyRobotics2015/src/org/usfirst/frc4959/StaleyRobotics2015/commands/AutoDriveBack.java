@@ -8,15 +8,15 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein
+ *
  */
-public class AutoShortDriveForward extends Command {
-	
+public class AutoDriveBack extends Command {
+
     RobotDrive robotDrive = RobotMap.drivetrainRobotDriveForward;
     
     private static final Timer TIMER = new Timer();
     
-    public AutoShortDriveForward() {
+    public AutoDriveBack() {
         }
 
     protected void initialize()
@@ -26,11 +26,11 @@ public class AutoShortDriveForward extends Command {
         }
 
     protected void execute() {
-        robotDrive.tankDrive(-0.8, -0.8);
+        robotDrive.tankDrive(1, 0.8);
         }
     
     protected boolean isFinished() {
-        while(TIMER.get() < 2.8)
+        while(TIMER.get() < 4.5)
             {
             return false;
             }   

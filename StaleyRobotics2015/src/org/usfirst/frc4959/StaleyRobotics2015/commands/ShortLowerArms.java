@@ -1,16 +1,15 @@
 package org.usfirst.frc4959.StaleyRobotics2015.commands;
 
 import org.usfirst.frc4959.StaleyRobotics2015.Robot;
-import org.usfirst.frc4959.StaleyRobotics2015.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Authors - Dustin Klein, Connor, Dillon
+ * Author - Dustin Klein
  */
-public class GoToRecycleBinHeight extends Command {
+public class ShortLowerArms extends Command {
 
-    public GoToRecycleBinHeight() {
+    public ShortLowerArms() {
     	requires(Robot.elevator);
     }
 
@@ -18,18 +17,17 @@ public class GoToRecycleBinHeight extends Command {
     }
 
     protected void execute() {
-    	Robot.elevator.setSetpoint(Elevator.recycleBinHeight);
+    	Robot.elevator.setSetpointRelative(-0.2);
     	Robot.elevator.enable();
     }
 
     protected boolean isFinished() {
-    	return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
+        return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
     }
 
     protected void end() {
     }
 
     protected void interrupted() {
-    	end();
     }
 }

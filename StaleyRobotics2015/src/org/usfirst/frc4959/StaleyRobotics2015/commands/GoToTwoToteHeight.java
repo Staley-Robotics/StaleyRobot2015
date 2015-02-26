@@ -19,6 +19,7 @@ public class GoToTwoToteHeight extends Command {
 
     protected void execute() {
     	Robot.elevator.setSetpoint(Elevator.twoToteHeight);
+    	Robot.elevator.enable();
     }
 
     protected boolean isFinished() {
@@ -29,5 +30,6 @@ public class GoToTwoToteHeight extends Command {
     }
 
     protected void interrupted() {
+    	end();
     }
 }

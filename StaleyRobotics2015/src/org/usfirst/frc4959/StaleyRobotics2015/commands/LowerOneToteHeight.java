@@ -1,6 +1,7 @@
 package org.usfirst.frc4959.StaleyRobotics2015.commands;
 
 import org.usfirst.frc4959.StaleyRobotics2015.Robot;
+import org.usfirst.frc4959.StaleyRobotics2015.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -17,11 +18,12 @@ public class LowerOneToteHeight extends Command {
     }
 
     protected void execute() {
-    	Robot.elevator.setSetpointRelative(-1);
+    	Robot.elevator.setSetpoint(Robot.elevator.getSetpoint() - 0.5);
+    	Robot.elevator.enable();
     }
 
     protected boolean isFinished() {
-        return false;
+        return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
     }
 
     protected void end() {

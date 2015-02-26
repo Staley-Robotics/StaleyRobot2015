@@ -19,6 +19,7 @@ public class GoToThreeToteHeight extends Command {
 
     protected void execute() {
     	Robot.elevator.setSetpoint(Elevator.threeToteHeight);
+    	Robot.elevator.enable();
     }
 
     protected boolean isFinished() {

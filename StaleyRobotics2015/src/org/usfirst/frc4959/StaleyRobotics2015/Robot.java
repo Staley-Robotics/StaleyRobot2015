@@ -1,5 +1,6 @@
 package org.usfirst.frc4959.StaleyRobotics2015;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -21,9 +22,7 @@ import org.usfirst.frc4959.StaleyRobotics2015.subsystems.*;
 public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
-    Command autonomousCommandOne;
-    Command autonomousCommandTwo;
-    Command autonomousCommandThree;
+	CameraServer server;
 
     public static OI oi;
     
@@ -41,9 +40,15 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	RobotMap.init();
  
+    	server = CameraServer.getInstance();
+    	server.setQuality(50);
+    	server.startAutomaticCapture("cam0");
+    	
         driveTrain = new Drivetrain();
         elevator = new Elevator();
         gripperArms = new GripperArms();
+        
+        autonomousCommand = new AutonomousOneTote();
         // OI must be constructed after subsystems. If the OI creates Commands 
         //(which it very likely will), subsystems are not guaranteed to be 
         // constructed yet. Thus, their requires() statements may grab null 
@@ -51,10 +56,12 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 
         // instantiate the command used for the autonomous period
+        
         autonomousModes = new SendableChooser();
         autonomousModes.addDefault("One Tote", new AutonomousOneTote());
         autonomousModes.addObject("One Recycle Bin", new AutonomousOneRecycleBin());
-        autonomousModes.addObject("One Tote and Recycle Bin", new AutonomousOneToteRecycleBin());
+        autonomousModes.addObject("Middle Recycle Bin", new AutonomousMiddleRecycleBin());
+        autonomousModes.addObject("AutoBrett v2", new AutoBrettv2());
         SmartDashboard.putData("Autonomous Modes", autonomousModes);
     }
 
@@ -88,7 +95,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommandOne != null) autonomousCommandOne.cancel();
+        if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     /**

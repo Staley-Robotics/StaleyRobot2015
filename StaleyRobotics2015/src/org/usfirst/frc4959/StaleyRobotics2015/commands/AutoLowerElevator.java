@@ -3,20 +3,18 @@ package org.usfirst.frc4959.StaleyRobotics2015.commands;
 import org.usfirst.frc4959.StaleyRobotics2015.Robot;
 import org.usfirst.frc4959.StaleyRobotics2015.RobotMap;
 
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein
+ *
  */
-public class AutoShortDriveForward extends Command {
+public class AutoLowerElevator extends Command {
 	
-    RobotDrive robotDrive = RobotMap.drivetrainRobotDriveForward;
+private static final Timer TIMER = new Timer();
     
-    private static final Timer TIMER = new Timer();
-    
-    public AutoShortDriveForward() {
+    public AutoLowerElevator() {
+    	requires(Robot.elevator);
         }
 
     protected void initialize()
@@ -26,11 +24,11 @@ public class AutoShortDriveForward extends Command {
         }
 
     protected void execute() {
-        robotDrive.tankDrive(-0.8, -0.8);
+        	RobotMap.elevatorTalon.set(-0.2);
         }
     
     protected boolean isFinished() {
-        while(TIMER.get() < 2.8)
+        while(TIMER.get() < 0.5)
             {
             return false;
             }   
@@ -40,9 +38,8 @@ public class AutoShortDriveForward extends Command {
     protected void end()
         {
         System.out.println("AutoMove Finished");
-        robotDrive.tankDrive(0, 0);
+        RobotMap.elevatorTalon.set(0);
         Timer.delay(0.3);
-        robotDrive.stopMotor();
         TIMER.stop();
         TIMER.reset();
         }

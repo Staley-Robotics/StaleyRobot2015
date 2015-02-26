@@ -19,15 +19,17 @@ public class GoToFourToteHeight extends Command {
 
     protected void execute() {
     	Robot.elevator.setSetpoint(Elevator.fourToteHeight);
+    	Robot.elevator.enable();
     }
 
     protected boolean isFinished() {
-        return false;
+        return Math.abs(Robot.elevator.getSetpoint() - Robot.elevator.getPosition()) < 0.1;
     }
 
     protected void end() {
     }
 
     protected void interrupted() {
+    	end();
     }
 }

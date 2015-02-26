@@ -26,7 +26,7 @@ public class AutoSpin extends Command {
 
     protected void execute() {
     	
-    	RobotMap.drivetrainRobotDriveSideways.arcadeDrive(0, .3);
+    	RobotMap.drivetrainRobotDriveSideways.arcadeDrive(0, .4);
     }
 
     protected boolean isFinished() {

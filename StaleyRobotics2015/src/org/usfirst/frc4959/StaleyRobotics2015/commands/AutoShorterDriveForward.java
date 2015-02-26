@@ -7,13 +7,13 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein
+ *
  */
-public class AutoDriveSidewaysLeft extends Command {
+public class AutoShorterDriveForward extends Command {
 	
 	private static final Timer TIMER = new Timer();
 
-    public AutoDriveSidewaysLeft() {
+    public AutoShorterDriveForward() {
     	requires(Robot.driveTrain);
     }
 
@@ -22,18 +22,18 @@ public class AutoDriveSidewaysLeft extends Command {
     }
 
     protected void execute() {
-    	RobotMap.drivetrainRobotDriveSideways.arcadeDrive(0.2, 0);
+    	RobotMap.drivetrainRobotDriveForward.tankDrive(0.5, 0.5);
     }
-
     protected boolean isFinished() {
-    	while (TIMER.get() < 4) {
-    		return false;
-    	}
-    	return true;
+        while (TIMER.get() < .1) {
+        	return false;
+        }
+        return true;
     }
 
     protected void end() {
-    	Robot.driveTrain.stop();
+    	RobotMap.drivetrainRobotDriveForward.stopMotor();
+    	TIMER.stop();
     	TIMER.reset();
     }
 
