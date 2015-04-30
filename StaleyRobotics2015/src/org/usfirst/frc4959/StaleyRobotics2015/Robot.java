@@ -59,8 +59,8 @@ public class Robot extends IterativeRobot {
         
         autonomousModes = new SendableChooser();
         autonomousModes.addDefault("One Tote", new AutonomousOneTote());
-        autonomousModes.addObject("One Recycle Bin", new AutonomousOneRecycleBin());
-        autonomousModes.addObject("Middle Recycle Bin", new AutonomousMiddleRecycleBin());
+        autonomousModes.addObject("One Tote Hump", new AutonomousOneToteHump());
+//        autonomousModes.addObject("Middle Recycle Bin", new AutonomousMiddleRecycleBin());
         autonomousModes.addObject("AutoBrett v2", new AutoBrettv2());
         SmartDashboard.putData("Autonomous Modes", autonomousModes);
     }

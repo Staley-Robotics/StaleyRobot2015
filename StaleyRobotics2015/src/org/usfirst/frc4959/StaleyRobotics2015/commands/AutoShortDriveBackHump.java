@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutoDriveBack extends Command {
+public class AutoShortDriveBackHump extends Command {
 
-    RobotDrive robotDrive = RobotMap.drivetrainRobotDriveForward;
+RobotDrive robotDrive = RobotMap.drivetrainRobotDriveForward;
     
     private static final Timer TIMER = new Timer();
     
-    public AutoDriveBack() {
+    public AutoShortDriveBackHump() {
         }
 
     protected void initialize()
@@ -25,11 +25,11 @@ public class AutoDriveBack extends Command {
         }
 
     protected void execute() {
-        robotDrive.tankDrive(0.8, 0.7);
+        robotDrive.tankDrive(1, 0.8);
         }
     
     protected boolean isFinished() {
-        while(TIMER.get() < 4.5)
+        while(TIMER.get() < 2.8)
             {
             return false;
             }   

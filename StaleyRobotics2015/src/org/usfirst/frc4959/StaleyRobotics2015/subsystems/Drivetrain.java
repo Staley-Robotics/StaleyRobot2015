@@ -28,13 +28,9 @@ public class Drivetrain extends Subsystem {
     }
  
      public void falconDrive(double joystickX, double joystickY, double joystickTwist) {
-    	 robotDriveForward.arcadeDrive(joystickY, joystickTwist * 0.9);
+    	 robotDriveForward.arcadeDrive(joystickY, joystickTwist * 0.90);
     	 robotDriveSideways.arcadeDrive(0, joystickX);
     }
-    
-//    public void falconDrive(Joystick rightJoystick) {
-//    	robotDriveForward.arcadeDrive(rightJoystick);
-//    }
 
 	public void stop() {
 		robotDriveForward.drive(0, 0);

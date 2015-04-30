@@ -1,6 +1,5 @@
 package org.usfirst.frc4959.StaleyRobotics2015.subsystems;
 
-import org.usfirst.frc4959.StaleyRobotics2015.Robot;
 import org.usfirst.frc4959.StaleyRobotics2015.RobotMap;
 import org.usfirst.frc4959.StaleyRobotics2015.commands.*;
 
@@ -43,6 +42,6 @@ public class Elevator extends PIDSubsystem {
     }
     
     public void elevator(double leftJoystickY) {
-    	elevatorTalon.set(-leftJoystickY * 0.75);
+    	elevatorTalon.set(-leftJoystickY * 0.65);
     }
 }

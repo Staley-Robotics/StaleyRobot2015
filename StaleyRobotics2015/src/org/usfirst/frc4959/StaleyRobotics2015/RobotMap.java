@@ -22,6 +22,7 @@ public class RobotMap {
     public static SpeedController elevatorTalon;
     public static Compressor compressor;
     public static DoubleSolenoid solenoid;
+    public static Servo cameraServo;
 
     public static void init() {
     	
@@ -32,7 +33,7 @@ public class RobotMap {
     	 * 3 is back
     	 * 4 is front
     	 */
- 
+
     	leftTalon = new Talon(1);
     	rightTalon = new Talon(2);
     	backTalon = new Talon(3);
@@ -43,6 +44,7 @@ public class RobotMap {
     	solenoid = new DoubleSolenoid(0,1);
     	elevatorPotentiometer = new AnalogPotentiometer(0, 4.8, 0);
         LiveWindow.addSensor("Elevator", "Potentiometer", elevatorPotentiometer);
+        cameraServo = new Servo(6);
     	
     	drivetrainRobotDriveForward = new RobotDrive(leftTalon, rightTalon);
     	drivetrainRobotDriveSideways = new RobotDrive(frontTalon, backTalon);
@@ -55,11 +57,11 @@ public class RobotMap {
     	drivetrainRobotDriveSideways.setSafetyEnabled(true);
     	drivetrainRobotDriveSideways.setExpiration(0.1);
     	drivetrainRobotDriveSideways.setSensitivity(0.5);
-    	drivetrainRobotDriveSideways.setMaxOutput(.5);
+    	drivetrainRobotDriveSideways.setMaxOutput(0.8);
     	
     	drivetrainRobotDriveForward.setSafetyEnabled(true);
     	drivetrainRobotDriveForward.setExpiration(0.1);
     	drivetrainRobotDriveForward.setSensitivity(0.5);
-    	drivetrainRobotDriveForward.setMaxOutput(.7);
+    	drivetrainRobotDriveForward.setMaxOutput(0.8);
     }
 }

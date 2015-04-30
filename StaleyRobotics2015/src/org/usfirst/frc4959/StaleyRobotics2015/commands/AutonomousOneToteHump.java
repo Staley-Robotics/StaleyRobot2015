@@ -3,18 +3,16 @@ package org.usfirst.frc4959.StaleyRobotics2015.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Author - Dusitn Klein and Connor
+ *
  */
-public class AutonomousOneTote extends CommandGroup {
-	
-
+public class AutonomousOneToteHump extends CommandGroup {
     
-    public  AutonomousOneTote() {
-    	addSequential(new AutoShortDriveForward());
+    public  AutonomousOneToteHump() {
+    	addSequential(new AutoShortDriveForwardHump());
     	addSequential(new CloseArms());
     	addSequential(new Delay());
     	addParallel(new AutoRaiseElevator());
-    	addSequential(new AutoDriveBack());
+    	addSequential(new AutoShortDriveBackHump());
     	addSequential(new AutoTurn());
     	addSequential(new OpenArms());
     	addSequential(new AutoLowerElevator());

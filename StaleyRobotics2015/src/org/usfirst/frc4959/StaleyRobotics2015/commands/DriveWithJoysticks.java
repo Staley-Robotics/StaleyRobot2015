@@ -17,7 +17,7 @@ public class  DriveWithJoysticks extends Command {
     }
     
     protected void execute() {
-    	Robot.driveTrain.falconDrive(Robot.oi.getRightJoystickX(), Robot.oi.getRightJoystickY(), Robot.oi.getRightJoystickTwist());
+    	Robot.driveTrain.falconDrive(Robot.oi.getRightStickX(), Robot.oi.getRightStickY(), Robot.oi.getLeftStickX());
     }
     
     protected boolean isFinished() {

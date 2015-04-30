@@ -28,7 +28,7 @@ private static final Timer TIMER = new Timer();
         }
     
     protected boolean isFinished() {
-        while(TIMER.get() < 2.7)
+        while(TIMER.get() < 2)
             {
             return false;
             }   

@@ -7,15 +7,15 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Author - Dustin Klein
+ *
  */
-public class AutoShortDriveForward extends Command {
-	
+public class AutoTurn extends Command {
+
 	  RobotDrive robotDrive = RobotMap.drivetrainRobotDriveForward;
 	    
 	    private static final Timer TIMER = new Timer();
 	    
-	    public AutoShortDriveForward() {
+	    public AutoTurn() {
 	        }
 
 	    protected void initialize()
@@ -25,11 +25,11 @@ public class AutoShortDriveForward extends Command {
 	        }
 
 	    protected void execute() {
-	        robotDrive.tankDrive(-0.7, -0.7);
+	        robotDrive.tankDrive(-0.7, 0.7);
 	        }
 	    
 	    protected boolean isFinished() {
-	        while(TIMER.get() < 2)
+	        while(TIMER.get() < 2.2)
 	            {
 	            return false;
 	            }   
